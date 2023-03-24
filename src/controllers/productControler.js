@@ -1,7 +1,3 @@
-// 1.1-listar todos os produtos com status 200;
-//  1.2- listar produtos pelo id; 
-//  1.3- listar produtos 
-
 const productServices = require('../services/productServices');
 
 const getAll = async (req, res) => {
@@ -18,7 +14,16 @@ const getById = async (req, res) => {
   res.status(200).send(productId); 
 };
 
+const registerProducts = async (req, res) => {
+  // valor da chave nome que vem da requisicao
+  const { name } = req.body;
+  // passa o valor da chave name para a funcao que esta no services.
+  const result = await productServices.registerProducts(name);
+  res.status(201).send(result);
+};
+
 module.exports = {
   getById,
   getAll, 
+  registerProducts,
 };
