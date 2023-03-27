@@ -14,15 +14,26 @@ const getById = async (id) => {
   return product;
 };
 
+const getByIdsTable = async (ids) => {
+  const interrogacoes = ids.map(() => '?');
+  const query = `SELECT * FROM products WHERE id IN (${interrogacoes})`;
+  //                                          tirando de dentro de um array e colocando em outro
+  const [productId] = await connection.execute(query, [...ids]);
+  return productId;
+  
+};
+
 const registerProducts = async (register) => {
   const query = 'INSERT INTO StoreManager.products(name) VALUES(?)';
   const [productRegister] = await connection.execute(query, [register]);
   // console.log(productRegister.insertId);
   return productRegister.insertId;
 };
-// c
+
+
 module.exports = {
   getById,
   getAll,
   registerProducts,
+  getByIdsTable,
 };
