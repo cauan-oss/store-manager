@@ -1,5 +1,5 @@
 const productServices = require('../services/productServices');
-const { sales } = require('./salesController');
+// const { sales } = require('./salesController');
 // const salesModels = require('../models/salesModelsId');
 
 const getAll = async (req, res) => {
