@@ -1,5 +1,5 @@
 const productServices = require('../services/productServices');
-const salesModels = require('../models/salesModelsId');
+// const salesModels = require('../models/salesModelsId');
 
 const getAll = async (req, res) => {
   const product = await productServices.getAll();
@@ -29,7 +29,7 @@ const newProduct = async (req, res) => {
   const insertNewProduct = await productServices.insertNewProduct(id, name);
    if (!insertNewProduct) {
     return res.status(404).send({ message: 'Product not found' });
-  }; 
+  }
   return res.status(200).json(insertNewProduct);
 };
 
