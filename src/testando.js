@@ -13,6 +13,6 @@ const venda = [
 const ids = venda.map((obj) => obj.quantity);
 console.log(ids); 
 
-const interrogacoes = ids.map(() => '?');
-const query = `SELECT * FROM products WHERE id IN (${interrogacoes.join(", ") })`;
+// const interrogacoes = ids.map(() => '?');
+// const query = `SELECT * FROM products WHERE id IN (${interrogacoes.join(", ") })`;
 /* console.log(query); */

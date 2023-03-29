@@ -4,7 +4,7 @@ const productDataValidate = require('./middlewares/productDataValidator');
 const salesController = require('./controllers/salesController');
 const validateProductId = require('./middlewares/validateProductId');
 const validateQuantity = require('./middlewares/validateQuantity');
-const listSales = require('./controllers/salesController');
+// const listSales = require('./controllers/salesController');
 
 const app = express();
 app.use(express.json());

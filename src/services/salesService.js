@@ -2,7 +2,6 @@
  // const salesProductsModels = require('../models/salesProductsModels');
 const product = require('../models/productModels');
 const salesProductsModels = require('../models/salesProductsModels');
-
 // esta funcao esta me retornando o id'
 const registerSalesId = async () => {
   const register = await salesModels.registerSales();
@@ -18,11 +17,12 @@ const verifyExistance = async (venda) => {
   return idProduct;
 };
  
-const registerSalesProducts = async (venda, id) => {
+const registerSalesProducts = async (venda) => {
   const hasErro = await verifyExistance(venda);
   if (hasErro.message) {
     return hasErro;
   }
+  const id = await registerSalesId();
   const salePromisse = venda.map((pdt) => salesProductsModels.salesProducts(pdt, id));
   await Promise.all(salePromisse);
   const objIdItem = { id, itemsSold: venda };
