@@ -8,8 +8,9 @@ const venda = [
     quantity: 5,
   },
 ];
+// const quantify = { quantify }
 
-const ids = venda.filter((obj) => obj.productId);
+const ids = venda.map((obj) => obj.quantity);
 console.log(ids); 
 
 const interrogacoes = ids.map(() => '?');

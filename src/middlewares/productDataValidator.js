@@ -8,5 +8,5 @@ const productDataValidate = (req, res, next) => {
   }
   next();
 };
-// 
+
 module.exports = productDataValidate;

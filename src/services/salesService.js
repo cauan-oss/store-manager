@@ -1,13 +1,11 @@
  const salesModels = require('../models/salesModelsId');
  // const salesProductsModels = require('../models/salesProductsModels');
 const product = require('../models/productModels');
-
-// const salesProductsModels = require('../models/salesProductsModels');
+const salesProductsModels = require('../models/salesProductsModels');
 
 // esta funcao esta me retornando o id'
 const registerSalesId = async () => {
   const register = await salesModels.registerSales();
-  // console.log(register.insertId);
   return register.insertId;
 };
 
@@ -20,22 +18,25 @@ const verifyExistance = async (venda) => {
   return idProduct;
 };
  
-const registerSalesProducts = async (venda) => {
-  // passo 1: verificar se o produto existe na tabela products 
-  const hasErro = verifyExistance(venda);
+const registerSalesProducts = async (venda, id) => {
+  const hasErro = await verifyExistance(venda);
   if (hasErro.message) {
     return hasErro;
   }
-  // passo 2: criar uma nova venda na tabela sales_product
-  const insertSaleProduct = 
-   
-  // const ids = registerSalesId();
-  // return [verifyProduct, ids];
-  // passo3: juntar os produtos(passo1) com a venda((passo2) na tabela salesProducts
-  // const newSale = salesProductsModels
+  const salePromisse = venda.map((pdt) => salesProductsModels.salesProducts(pdt, id));
+  await Promise.all(salePromisse);
+  const objIdItem = { id, itemsSold: venda };
+  return objIdItem;
 }; 
+ 
+const listSalesAll = async () => {
+  const listComplete = await salesModels.listSalesComplete();
+  
+  return listComplete;
+};
 
 module.exports = {
   registerSalesId,
   registerSalesProducts,
+  listSalesAll,
 };
