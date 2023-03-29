@@ -11,6 +11,7 @@ const getById = async (id) => {
   /* na const product, usamos o conection.execute para rodar 
   o comando da const query, o array serve para capturar o numero que vai no ? */
   const [[product]] = await connection.execute(query, [id]);
+  console.log(product);
   return product;
 };
 
@@ -29,9 +30,18 @@ const registerProducts = async (register) => {
   return productRegister.insertId;
 };
 
+const insertNewProductDb = async (id, name) => {
+  // console.log('esse e o meu name na models', id, name);
+  const query = 'UPDATE StoreManager.products SET name = ? where id = ?';
+  const [insert] = await connection.execute(query, [id, name]);
+  // console.log(insert);
+  return insert;
+};
+
 module.exports = {
   getById,
   getAll,
   registerProducts,
   getByIdsTable,
+  insertNewProductDb,
 };

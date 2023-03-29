@@ -24,4 +24,6 @@ app.post('/sales', [validateProductId, validateQuantity], salesController.sales)
 //  Req08
 app.get('/sales', salesController.listSales);
 app.get('/sales/:id', salesController.getListId);
+// Req10 
+app.put('/products/:id', productDataValidate, productController.newProduct);
 module.exports = app; 
