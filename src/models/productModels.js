@@ -11,7 +11,7 @@ const getById = async (id) => {
   /* na const product, usamos o conection.execute para rodar 
   o comando da const query, o array serve para capturar o numero que vai no ? */
   const [[product]] = await connection.execute(query, [id]);
-  console.log(product);
+   // console.log(product);
   return product;
 };
 
@@ -38,10 +38,18 @@ const insertNewProductDb = async (id, name) => {
   return insert;
 };
 
+const deletaId = async (id) => {
+  const query = 'DELETE FROM products WHERE id = ?';
+  const [deleta] = await connection.execute(query, [id]);
+  // console.log('deleta', deleta);
+  return deleta;
+};
+
 module.exports = {
   getById,
   getAll,
   registerProducts,
   getByIdsTable,
   insertNewProductDb,
+  deletaId,
 };

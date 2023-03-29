@@ -21,9 +21,15 @@ const insertNewProduct = async (id, name) => {
   return productUpdate;
 };
 
+const getDeleteIdService = async (id) => {
+  const deleteModels = await productModels.deletaId(id);
+  return deleteModels;
+};
+
 module.exports = {
   getById,
   getAll, 
   registerProducts,
   insertNewProduct,
+  getDeleteIdService,
 };

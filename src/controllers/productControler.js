@@ -1,4 +1,5 @@
 const productServices = require('../services/productServices');
+const { sales } = require('./salesController');
 // const salesModels = require('../models/salesModelsId');
 
 const getAll = async (req, res) => {
@@ -33,9 +34,21 @@ const newProduct = async (req, res) => {
   return res.status(200).json(insertNewProduct);
 };
 
+const getDeleteId = async (req, res) => {
+  const { id } = req.params;
+  const deleteProduct = await productServices.getDeleteIdService(id);
+  console.log('meu', deleteProduct);
+  if (deleteProduct.affectedRows === 0) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+  console.log(deleteProduct.insertId);
+  return res.status(204).json({ deleteProduct });
+};
+
 module.exports = {
   getById,
   getAll, 
   registerProducts,
   newProduct,
+  getDeleteId,
 };

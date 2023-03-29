@@ -26,4 +26,6 @@ app.get('/sales', salesController.listSales);
 app.get('/sales/:id', salesController.getListId);
 // Req10 
 app.put('/products/:id', productDataValidate, productController.newProduct);
+// Req12
+app.delete('/products/:id', productController.getDeleteId);
 module.exports = app; 
