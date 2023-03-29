@@ -31,12 +31,18 @@ const registerSalesProducts = async (venda) => {
  
 const listSalesAll = async () => {
   const listComplete = await salesModels.listSalesComplete();
-  
   return listComplete;
+};
+
+const getListIdService = async (id) => {
+  const idForModel = await salesModels.getListIdModel(id);
+  // console.log('meu id', idForModel);
+  return idForModel;
 };
 
 module.exports = {
   registerSalesId,
   registerSalesProducts,
   listSalesAll,
+  getListIdService,
 };

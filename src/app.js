@@ -23,4 +23,5 @@ app.post('/products', productDataValidate, productController.registerProducts);
 app.post('/sales', [validateProductId, validateQuantity], salesController.sales);
 //  Req08
 app.get('/sales', salesController.listSales);
+app.get('/sales/:id', salesController.getListId);
 module.exports = app; 
