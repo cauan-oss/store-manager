@@ -1,26 +1,30 @@
-/* const request = require('supertest');
-const app = require('../../app');
+const chai = require('chai');
 
-describe('GET /products', () => {
-  it('should return all products', async () => {
-    const response = await request(app).get('/products');
-    expect(response.status).toBe(200);
-    expect(response.body).toHaveLength(2);
-    expect(response.body[0].name).toBe('Martelo de Thor');
-    expect(response.body[1].name).toBe('Traje de encolhimento');
-  });
-});
+const { expect } = chai;
 
-describe('GET /products/:id', () => {
-  it('should return a specific product', async () => {
-    const response = await request(app).get('/products/1');
-    expect(response.status).toBe(200);
-    expect(response.body.name).toBe('Martelo de Thor');
+const sinon = require('sinon');
+const sinonChai = require('sinon-chai');
+chai.use(sinonChai)
+const productController  = require('../../../src/controllers/productControler');
+const productService  = require('../../../src/services/productServices');
+
+const { productAll } = require('../models/mocks/product.model.mock');
+const connection = require('../../../src/models/connection');
+
+describe('teste unitario camada service', function () {
+  it("deve retornar o status 200 e a lista", async function () {
+    sinon.stub(productService, 'getAll').resolves(productAll);
+
+    const res = {};
+    const req = {};
+
+    res.status = sinon.stub().returns(res)
+    res.json = sinon.stub().returns();
+
+    const result = await productController.getAll(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(productAll);
   });
 
-  it('should return a 404 status code for an invalid product id', async () => {
-    const response = await request(app).get('/products/3');
-    expect(response.status).toBe(404);
-    expect(response.body.message).toBe('Product not found');
-  });
-}); */
+})
