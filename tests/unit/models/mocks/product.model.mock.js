@@ -13,6 +13,18 @@ const productsAll = [
   }
 ]
 
+const product = {
+  "name": "golfao sportline"
+}
+
+const returnValidProduct = {
+  "id": 1,
+  "name": "golfao sportline"
+}
+
+
 module.exports = {
   productsAll,
+  product,
+  returnValidProduct
 }

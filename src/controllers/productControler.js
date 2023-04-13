@@ -21,7 +21,7 @@ const registerProducts = async (req, res) => {
   const { name } = req.body;
   // passa o valor da chave name para a funcao que esta no services.
   const result = await productServices.registerProducts(name);
-  res.status(201).send(result);
+  res.status(201).json(result);
 };
 
 const newProduct = async (req, res) => {
@@ -29,7 +29,7 @@ const newProduct = async (req, res) => {
   const { name } = req.body;
   const insertNewProduct = await productServices.insertNewProduct(id, name);
    if (!insertNewProduct) {
-    return res.status(404).send({ message: 'Product not found' });
+    return res.status(404).json({ message: 'Product not found' });
   }
   return res.status(200).json(insertNewProduct);
 };

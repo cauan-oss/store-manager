@@ -7,6 +7,7 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const product = await productModels.getById(id);
+  console.log(product);
   return product;
 };
 
@@ -17,6 +18,7 @@ const registerProducts = async (register) => {
 
 const insertNewProduct = async (id, name) => {
   await productModels.insertNewProductDb(name, id);
+  console.log('ahahaa');
   const productUpdate = await productModels.getById(Number(id)); 
   return productUpdate;
 };
