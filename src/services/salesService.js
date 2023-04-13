@@ -41,9 +41,15 @@ const getListIdService = async (id) => {
   return idForModel;
 };
 
+const deleteSalesService = async (id) => {
+  const deletar = await salesModels.salesDeleteModel(id);
+  return deletar;
+};
+
 module.exports = {
   registerSalesId,
   registerSalesProducts,
   listSalesAll,
   getListIdService,
+  deleteSalesService,
 };

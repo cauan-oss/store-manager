@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-25T21:22:20.319Z",
-    "modified": "2023-03-25T21:22:47.283Z",
+    "modified": "2023-04-13T02:24:28.381Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"jetta gli\"\n}",
+      "raw": "{\n  \"name\": \"golfaoo sportilee\"\n}",
       "form": []
     },
     "tests": []
@@ -206,6 +206,20 @@
     "sortNum": 0,
     "created": "2023-03-29T21:42:11.942Z",
     "modified": "2023-03-29T21:42:11.942Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8b689a49-cf9e-44dc-affe-2fdd5815825f",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3001/sales/1",
+    "url": "localhost:3001/sales/2",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-04-13T01:37:38.934Z",
+    "modified": "2023-04-13T02:14:55.933Z",
     "headers": [],
     "params": [],
     "tests": []

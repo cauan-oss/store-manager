@@ -28,4 +28,8 @@ app.get('/sales/:id', salesController.getListId);
 app.put('/products/:id', productDataValidate, productController.newProduct);
 // Req12
 app.delete('/products/:id', productController.getDeleteId);
+// Req14
+app.delete('/sales/:id', salesController.deleteSales);
+// Req16
+
 module.exports = app; 

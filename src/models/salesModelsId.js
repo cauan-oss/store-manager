@@ -23,8 +23,15 @@ const getListIdModel = async (id) => {
   return getId;
 };
 
+const salesDeleteModel = async (id) => {
+  const query = 'DELETE FROM sales WHERE id = ?';
+  const [deleteSaleId] = await connection.execute(query, [id]);
+  return deleteSaleId;
+};
+
 module.exports = {
   registerSales,
   listSalesComplete,
   getListIdModel,
+  salesDeleteModel,
 };
