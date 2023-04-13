@@ -23,6 +23,7 @@ const registerSalesProducts = async (venda) => {
     return hasErro;
   }
   const id = await registerSalesId();
+  console.log(id);
   const salePromisse = venda.map((pdt) => salesProductsModels.salesProducts(pdt, id));
   await Promise.all(salePromisse);
   const objIdItem = { id, itemsSold: venda };
