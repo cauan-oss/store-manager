@@ -1,3 +1,4 @@
+const { updateSalesProducts } = require('../models/salesProductsModels');
 const salesServices = require('../services/salesService');
 const deleteService = require('../services/salesService');
 
@@ -32,10 +33,21 @@ const deleteSales = async (req, res) => {
   }
   return res.status(204).json({ message: undefined });
 };
+const updateSales = async (req, res) => {
+  const { id } = req.params;
+  const update = req.body;
+  const data = await salesServices.updateSalesService(id, update);
+  console.log('oque retorna', data);
+  if (data.message) {
+    return res.status(404).json(data)
+  }
+  return res.status(200).json(data);
+};
 
 module.exports = {
   sales,
   listSales,
   getListId,
   deleteSales,
+  updateSales,
 }; 

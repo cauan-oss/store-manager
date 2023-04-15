@@ -1,4 +1,4 @@
- const salesModels = require('../models/salesModelsId');
+const salesModels = require('../models/salesModelsId');
  // const salesProductsModels = require('../models/salesProductsModels');
 const product = require('../models/productModels');
 const salesProductsModels = require('../models/salesProductsModels');
@@ -46,10 +46,31 @@ const deleteSalesService = async (id) => {
   return deletar;
 };
 
+const updateSalesService = async (id, update) => {
+  const getId = await salesModels.getListIdModel(id);
+  console.log('meu get',getId);
+  if (getId.length === 0) {
+    return { message: "Sale not found"}
+  }
+  /* const updateSale = salesProductsModels.updateSalesProducts(update, id); */
+  const buscaProduto = await Promise.all(update.map(({ productId }) =>
+    product.getById(productId)));
+  console.log('salesssss', buscaProduto);
+  if (buscaProduto.includes(undefined)) {
+    return { message: 'Product not found' };
+  };
+
+  await salesProductsModels.updateSalesProducts(id, update);
+  return {
+    saleId: id, itemsUpdated: update
+  };
+};
+
 module.exports = {
   registerSalesId,
   registerSalesProducts,
   listSalesAll,
   getListIdService,
   deleteSalesService,
+  updateSalesService,
 };

@@ -31,5 +31,6 @@ app.delete('/products/:id', productController.getDeleteId);
 // Req14
 app.delete('/sales/:id', salesController.deleteSales);
 // Req16
+app.put('/sales/:id', validateProductId, validateQuantity, salesController.updateSales);
 
 module.exports = app; 

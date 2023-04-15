@@ -9,4 +9,14 @@ const salesProducts = async (saleProduct, id) => {
     saleProduct.quantity]);
 };
 
-module.exports = { salesProducts };
+const updateSalesProducts = async (id, update) => {
+  const updateSale = await update.map(({ quantity, productId }) =>
+    connection.execute(`UPDATE sales_products SET quantity = ? 
+  WHERE sale_id = ? AND product_id = ?`, [quantity, id, productId]));
+  
+  const data = await Promise.all(updateSale);
+  console.log('modell', data);
+
+};
+
+module.exports = { salesProducts, updateSalesProducts };
