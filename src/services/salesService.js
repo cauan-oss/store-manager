@@ -48,9 +48,8 @@ const deleteSalesService = async (id) => {
 
 const updateSalesService = async (id, update) => {
   const getId = await salesModels.getListIdModel(id);
-  console.log('meu get',getId);
   if (getId.length === 0) {
-    return { message: "Sale not found"}
+    return { message: 'Sale not found' };
   }
   /* const updateSale = salesProductsModels.updateSalesProducts(update, id); */
   const buscaProduto = await Promise.all(update.map(({ productId }) =>
@@ -58,11 +57,11 @@ const updateSalesService = async (id, update) => {
   console.log('salesssss', buscaProduto);
   if (buscaProduto.includes(undefined)) {
     return { message: 'Product not found' };
-  };
+  }
 
   await salesProductsModels.updateSalesProducts(id, update);
   return {
-    saleId: id, itemsUpdated: update
+    saleId: id, itemsUpdated: update,
   };
 };
 

@@ -16,7 +16,6 @@ const updateSalesProducts = async (id, update) => {
   
   const data = await Promise.all(updateSale);
   console.log('modell', data);
-
 };
 
 module.exports = { salesProducts, updateSalesProducts };
