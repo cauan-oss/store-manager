@@ -40,8 +40,15 @@ const getDeleteId = async (req, res) => {
   if (deleteProduct.affectedRows === 0) {
     return res.status(404).json({ message: 'Product not found' });
   }
-  console.log(deleteProduct.insertId);
+ 
   return res.status(204).json({ deleteProduct });
+};
+
+const productQuery = async (req, res) => {
+  const { q } = req.query;
+  console.log('string', q);
+  const result = await productServices.productQueryService(q);
+  return res.status(200).json(result);
 };
 
 module.exports = {
@@ -50,4 +57,5 @@ module.exports = {
   registerProducts,
   newProduct,
   getDeleteId,
+  productQuery,
 };

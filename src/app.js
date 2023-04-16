@@ -14,6 +14,7 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
+app.get('/products/search', productController.productQuery);
 // Req01
 app.get('/products', productController.getAll);
 app.get('/products/:id', productController.getById);
@@ -32,5 +33,6 @@ app.delete('/products/:id', productController.getDeleteId);
 app.delete('/sales/:id', salesController.deleteSales);
 // Req16
 app.put('/sales/:id', validateProductId, validateQuantity, salesController.updateSales);
+// Req18
 
 module.exports = app; 

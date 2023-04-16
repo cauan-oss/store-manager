@@ -45,6 +45,13 @@ const deletaId = async (id) => {
   return deleta;
 };
 
+const getQuery = async (query) => {
+  const search = 'SELECT * FROM StoreManager.products WHERE name LIKE ?';
+  const [querySearch] = await connection.execute(search, [`%${query}%`]);
+  console.log('akakak', querySearch);
+  return querySearch;
+};
+
 module.exports = {
   getById,
   getAll,
@@ -52,4 +59,5 @@ module.exports = {
   getByIdsTable,
   insertNewProductDb,
   deletaId,
+  getQuery,
 };

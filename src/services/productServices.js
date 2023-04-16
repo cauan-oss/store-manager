@@ -28,10 +28,20 @@ const getDeleteIdService = async (id) => {
   return deleteModels;
 };
 
+const productQueryService = async (query) => {
+  const search = await productModels.getQuery(query);
+   if (!query) {
+    const result = await productModels.getAll();
+    return result;
+  }
+  return search;
+};
+
 module.exports = {
   getById,
   getAll, 
   registerProducts,
   insertNewProduct,
   getDeleteIdService,
+  productQueryService,
 };
