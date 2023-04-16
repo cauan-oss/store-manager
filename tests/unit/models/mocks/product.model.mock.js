@@ -20,11 +20,18 @@ const product = {
 const returnValidProduct = {
   "id": 1,
   "name": "golfao sportline"
+};
+
+const queryProduct = {
+    
+      "id": 1,
+      "name": "Martelo de Thor"  
 }
 
 
 module.exports = {
   productsAll,
   product,
-  returnValidProduct
+  returnValidProduct,
+  queryProduct
 }

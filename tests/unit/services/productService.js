@@ -9,7 +9,8 @@ chai.use(sinonChai);
 const productModels = require('../../../src/models/productModels');
 const productService = require('../../../src/services/productServices');
 
-const { productsAll, product, returnValidProduct } = require('../models/mocks/product.model.mock');
+const { productsAll, product, returnValidProduct, queryProduct } = require('../models/mocks/product.model.mock');
+const { query } = require('../../../src/models/connection');
 
 describe('teste unitario camada service', function () {
   it("lista de todos os produtos", async function () {
@@ -68,6 +69,12 @@ describe('teste unitario camada service', function () {
     }
     // Assert
   })
+  it('Testando o endpoint products / search', async () => {
+    sinon.stub(productModels, 'getQuery').resolves(queryProduct);
+    const result = await productService.productQueryService('Martelo');
+
+    expect(result).to.be.deep.equal(queryProduct);
+  });
 
   afterEach(function () {
     sinon.restore();

@@ -5,9 +5,10 @@ const { expect } = chai;
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 chai.use(sinonChai)
-const { productsAll } = require('./mocks/product.model.mock');
+const { productsAll, queryProduct } = require('./mocks/product.model.mock');
 const productModel = require('../../../src/models/productModels')
 const connection = require('../../../src/models/connection');
+const { productQuery } = require('../../../src/controllers/productControler');
 
 describe("testando a camada model", function () {
   it('recuperando uma lista com todos os produtos', async function () {
@@ -27,6 +28,16 @@ describe("testando a camada model", function () {
 
     expect(result).to.be.equal(productsAll[0]);
   })
+
+
+  it('Testando o o endpoit products/search', async () => {
+    sinon.stub(connection, 'execute').resolves([queryProduct]);
+    //act
+    const result = await productModel.getQuery();
+
+    // assert
+    expect(result).to.be.equal(queryProduct);
+  });
   afterEach(function () {
     sinon.restore();
   })

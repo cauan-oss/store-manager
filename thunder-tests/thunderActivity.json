@@ -295,11 +295,11 @@
     "colId": "history",
     "containerId": "",
     "name": " http://localhost:PORT/products/search?q=Martelo",
-    "url": " http://localhost:PORT/products/search?q=Martelo",
+    "url": " http://localhost:3001/products/search?q=Martelo",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-15T02:27:04.581Z",
-    "modified": "2023-04-15T02:27:04.581Z",
+    "modified": "2023-04-16T21:29:47.097Z",
     "headers": [],
     "params": [
       {
@@ -311,35 +311,15 @@
     "tests": []
   },
   {
-    "_id": "beda0510-b9d2-40d3-8625-42a66115a688",
-    "colId": "history",
-    "containerId": "",
-    "name": " http://localhost:3001/products/search?q=Martelo",
-    "url": "http://localhost:3001/products/search?q=",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-15T02:28:57.716Z",
-    "modified": "2023-04-16T15:22:25.009Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "q",
-        "value": "",
-        "isPath": false
-      }
-    ],
-    "tests": []
-  },
-  {
     "_id": "e56b934a-99a6-4826-a1a7-6d045abe2dcb",
     "colId": "history",
     "containerId": "",
     "name": " http://localhost:3001/search?q=Martelo",
-    "url": " http://localhost:3001/search?q=Martelo",
+    "url": "http://localhost:3001/search?q=Martelo",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-15T02:29:12.819Z",
-    "modified": "2023-04-15T03:34:38.095Z",
+    "modified": "2023-04-16T16:12:44.581Z",
     "headers": [],
     "params": [
       {

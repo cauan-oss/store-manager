@@ -8,10 +8,10 @@ chai.use(sinonChai)
 const productController  = require('../../../src/controllers/productControler');
 const productService  = require('../../../src/services/productServices');
 
-const { productAll, product, returnValidProduct } = require('../models/mocks/product.model.mock');
+const { productAll, product, returnValidProduct, queryProduct  } = require('../models/mocks/product.model.mock');
 const connection = require('../../../src/models/connection');
 
-describe('teste unitario camada service', function () {
+describe('teste unitario camada controler', function () {
  
   it("deve retornar o status 200 e a lista", async function () {
     sinon.stub(productService, 'getAll').resolves(productAll);
@@ -146,6 +146,23 @@ describe('teste unitario camada service', function () {
     expect(res.json).to.have.been.calledWith({ message: 'Product not found' });
 
   })
+
+  it('Testando o endpoint products/search', async function () {
+    const res = {};
+    const req = {
+      query: { q: 'Martelo' }
+    };
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await productController.productQuery(req, res)
+
+    sinon
+      .stub(productService, 'productQueryService').resolves(queryProduct)
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(queryProduct);
+
+  });
 
   afterEach(function () {
     sinon.restore();
