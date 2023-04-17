@@ -291,46 +291,6 @@
     "tests": []
   },
   {
-    "_id": "5ae9d20f-333e-436f-b2e3-f9d09589b089",
-    "colId": "history",
-    "containerId": "",
-    "name": " http://localhost:PORT/products/search?q=Martelo",
-    "url": " http://localhost:3001/products/search?q=Martelo",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-15T02:27:04.581Z",
-    "modified": "2023-04-16T21:29:47.097Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "q",
-        "value": "Martelo",
-        "isPath": false
-      }
-    ],
-    "tests": []
-  },
-  {
-    "_id": "e56b934a-99a6-4826-a1a7-6d045abe2dcb",
-    "colId": "history",
-    "containerId": "",
-    "name": " http://localhost:3001/search?q=Martelo",
-    "url": "http://localhost:3001/search?q=Martelo",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-15T02:29:12.819Z",
-    "modified": "2023-04-16T16:12:44.581Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "q",
-        "value": "Martelo",
-        "isPath": false
-      }
-    ],
-    "tests": []
-  },
-  {
     "_id": "48dd494b-d7a9-4197-8e7e-02ac9009aa43",
     "colId": "history",
     "containerId": "",
@@ -342,6 +302,46 @@
     "modified": "2023-04-15T03:36:07.402Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "abf0f42f-5be1-4406-987c-5b1ca5a8a861",
+    "colId": "history",
+    "containerId": "",
+    "name": " http://localhost:3001/products/search?q=Martelo",
+    "url": " http://localhost:3001/products/search?q=Martelo",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T00:18:09.115Z",
+    "modified": "2023-04-17T00:18:09.115Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Martelo",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "77244ff5-76e0-450e-bfb8-1397f30fc523",
+    "colId": "history",
+    "containerId": "",
+    "name": " http://localhost:3001/products/search?q=",
+    "url": " http://localhost:3001/products/search?q=",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-17T00:18:22.842Z",
+    "modified": "2023-04-17T00:18:22.842Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "",
+        "isPath": false
+      }
+    ],
     "tests": []
   }
 ]

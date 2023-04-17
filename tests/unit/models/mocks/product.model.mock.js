@@ -22,11 +22,11 @@ const returnValidProduct = {
   "name": "golfao sportline"
 };
 
-const queryProduct = {
+const queryProduct = [{
     
       "id": 1,
       "name": "Martelo de Thor"  
-}
+}]
 
 
 module.exports = {

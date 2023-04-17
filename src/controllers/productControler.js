@@ -46,8 +46,9 @@ const getDeleteId = async (req, res) => {
 
 const productQuery = async (req, res) => {
   const { q } = req.query;
-  console.log('string', q);
   const result = await productServices.productQueryService(q);
+  console.log('string', result);
+
   return res.status(200).json(result);
 };
 

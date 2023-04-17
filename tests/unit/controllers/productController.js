@@ -155,10 +155,10 @@ describe('teste unitario camada controler', function () {
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
 
-    await productController.productQuery(req, res)
-
+    
     sinon
-      .stub(productService, 'productQueryService').resolves(queryProduct)
+    .stub(productService, 'productQueryService').resolves(queryProduct)
+    await productController.productQuery(req, res)
     expect(res.status).to.have.been.calledWith(200);
     expect(res.json).to.have.been.calledWith(queryProduct);
 
